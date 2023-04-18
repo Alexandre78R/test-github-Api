@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 export default function () {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
+   const controllor = new AbortController();
   // TODO : fetch the github user list matching the search query
   // (a new API call should be made every time the query changes)
   // (errors should be logged in the console or/and printed to the UI)
@@ -19,6 +19,10 @@ export default function () {
       .catch((err) => {
         console.error(err.response.data)
       });
+    }
+
+    return () =>  {
+      controllor.abort();
     }
   }, [query]);
 
