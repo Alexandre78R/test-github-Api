@@ -6,16 +6,13 @@ export default function PopularJSRepos() {
 
   // TODO : load the repos into state when the component mounts
   useEffect(() => {
-    const apiData = async () => {
-      await axios
+      axios
       .get("https://api.github.com/search/repositories?q=language:javascript&sort=stars")
       .then((res) => res.data.items)
       .then((repos) => setRepos(repos))
       .catch((err) => {
          console.error(err.response.data);
       });
-    }
-    apiData();
   }, []);
 
   return (
