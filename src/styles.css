@@ -1,0 +1,13 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+nav a {
+  padding: 10px;
+  text-decoration: none;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
